@@ -1,0 +1,48 @@
+.navigation{
+    background-color: $color-beige-2;
+    position: fixed;
+    top:0px;
+    z-index: 1;
+    width:100%;
+    padding:2rem;
+    &__link{
+        font-size:2rem;
+        color:$color-brown;
+        margin-left: 2rem;
+        position: relative;
+        &:hover{
+        color:$color-blue;
+        text-decoration: none;
+            &:before{
+                transform: scaleX(1);
+            }
+
+        }
+        &:before{
+            width:100%;
+            content:"";
+            border-bottom: 1px solid $color-blue;
+            position: absolute;
+            top:100%;
+            transform: scaleX(0);
+            transition-duration: 0.5s;
+
+        }
+    }
+    &__user{
+        border-radius: 50%;
+        background-size: cover;
+        width:5rem;
+        height:5rem;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        cursor: pointer;
+    }
+    &__logo{
+        font-family: $font-1;
+        color:$color-brown;
+        font-weight: 600;
+        text-shadow: 1px 1px $color-grey;
+    }
+    
+}

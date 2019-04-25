@@ -1,0 +1,14 @@
+.home{
+    &-cover{
+        // background-image: url('../images/cover2.jpg');
+        background-size: cover;
+        height: 50rem;
+        // margin-bottom:10rem;
+    }
+    &-heading{
+        font-size: 10rem;
+        color:$color-brown;
+        text-shadow: 0px  0px 1rem $color-beige;
+        font-family: $font-1,serif;
+    }
+}

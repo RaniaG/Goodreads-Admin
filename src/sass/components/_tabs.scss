@@ -1,0 +1,81 @@
+.Tabs{
+    display: flex;
+    flex-flow: column;
+    &__headers{
+        &.end{
+            justify-content: end;
+        }
+        &.start{
+            justify-content: start;
+        }
+        &.center{
+             justify-content: center;
+        }
+        display: flex;
+        width:100%;
+        &--primary{
+            & div{
+                padding:2rem;
+                color:$color-grey;
+                font-size:2rem;
+                &:not(:nth-child(1)){
+                    border-left: 0.1rem solid $gray-400;
+                }
+                border-right:0.2rem solid transparent;
+                border-top:0.2rem solid transparent;
+                border-bottom:0.2rem solid transparent;
+                position: relative;
+                transition-duration: 0.5s;
+                &:hover, &.active{
+                    background-color: $color-blue;
+                    &:after{
+                        background-color: $color-blue;
+                    }
+                    color:white;
+                    cursor: pointer;
+                }
+                &:after{
+                    width:2rem;
+                    height: 2rem;
+                    content:"";
+                    position: absolute;
+                    top:85%;
+                    left:50%;
+                    transition-duration: 0.5s;
+                    transform: translateX(-50%) rotateZ(45deg);
+                }
+            }
+        }
+        &--secondary{
+            position: relative;
+            & div{
+                padding:2rem;
+                font-size:2rem;
+                color:$color-grey;
+                background-color: white;
+                border-bottom: 0.1rem solid $gray-400;
+                border-top-left-radius: 10%;
+                border-top-right-radius: 10%;
+                &.active{
+                    border-top:0.1rem solid $gray-400;
+                    border-right:0.1rem solid $gray-400;
+                    border-left:0.1rem solid $gray-400;
+                    border-bottom: 0.1rem solid white;
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            
+            &:after{
+                content:"";
+                width:100%;
+                border-bottom: 0.1rem solid $gray-400;
+                position: absolute;
+                top:98%;
+                z-index: -1;
+            }
+        }
+    }
+
+}

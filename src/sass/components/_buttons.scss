@@ -1,0 +1,47 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 10%;
+  border: none;
+  &--1 {
+    background-color: $color-blue;
+    border-color: $color-blue;
+    color: white;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-blue;
+      border-color: $color-blue;
+    }
+  }
+  &--2 {
+    background-color: $color-rose !important;
+    border-color: $color-rose !important;
+    color: white;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-rose !important;
+      border-color: $color-rose !important;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.font-awesome-btn {
+  color: $color-brown;
+  border: none;
+  background-color: transparent;
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none !important;
+    background-color: transparent !important;
+    color: $color-brown !important;
+    border: none !important;
+  }
+}

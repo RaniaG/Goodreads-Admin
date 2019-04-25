@@ -1,0 +1,29 @@
+.category-card {
+  background-color: #eeeed6;
+  color: #4b3b42;
+  &-title {
+    font-size: 2rem;
+  }
+  .btn {
+    background-color: #eeeed6;
+    color: #4b3b42;
+    border: none;
+  }
+}
+
+.add-category {
+  &-btn {
+    color: #4b3b42;
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none !important;
+      background-color: transparent !important;
+      color: #4b3b42 !important;
+      border: none !important;
+    }
+  }
+}

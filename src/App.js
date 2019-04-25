@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AdminNavbar from './components/NavBar/admin';
+import CategoriesAdminListing from './components/Categories/AdminListing';
+import BookListing from './components/Book/Listing';
+import AuthorListing from './components/Author/Listing';
+
+import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <>
+          <AdminNavbar />
+          <div className="content">
+            <Switch >
+              {/* admin routes */}
+              <Route path="/" exact component={CategoriesAdminListing} />
+              <Route path="/categories" exact component={CategoriesAdminListing} />
+              <Route path="/books" exact render={
+                (props) => <BookListing showControls={true} showSearchbox={true} />
+              } />
+              <Route path="/authors" exact render={
+                (props) => <AuthorListing showControls={true} showSearchbox={true} />
+              } />
+            </Switch>
+          </div>
+
+        </>
+      </div>
+    </Router>
   );
 }
 

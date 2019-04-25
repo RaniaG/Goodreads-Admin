@@ -1,0 +1,38 @@
+.card-slider{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow: row;
+    justify-content: space-between;
+    position: absolute;
+    width:100%;
+    right:0%;
+    transition-duration: 1s;
+    & div{
+        margin:1rem;
+    }
+    &__container{
+        overflow: hidden;
+        position: relative;
+        height: 40rem;
+    }
+    &__item{
+        width:30rem;
+        height:30rem;
+    }
+    &__btn{
+        font-size: 3rem;
+        padding: 2rem;
+        border-radius: 10%;
+        color:$color-blue;
+        background-color: transparent;
+        border-color: transparent;
+        transition-duration: 0.3s;
+        &:hover{
+            background-color: $color-blue;
+            color:$color-beige-2;
+            border-color: transparent;
+            cursor: pointer;
+        }
+        
+    }
+}

@@ -1,0 +1,42 @@
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+/*fonts*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei');
+
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+// @import 'vendor/';
+@import 'base/base';
+@import 'base/animations';
+@import 'base/typography';
+@import 'base/utilities';
+
+//layoyt
+@import 'layout/navigation';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/content';
+@import 'layout/section';
+
+// @import 'component/';
+@import 'components/book';
+@import 'components/author';
+
+@import 'components/Book';
+@import 'components/categories';
+@import 'components/tabs';
+@import 'components/signup';
+@import 'components/heading';
+@import 'components/card-slider';
+@import 'components/filters';
+@import 'components/buttons';
+@import 'components/user-profile';
+@import 'components/login';
+@import 'components/rater';
+
+//pages
+
+@import 'pages/home';
+

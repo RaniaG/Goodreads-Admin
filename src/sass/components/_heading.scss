@@ -1,0 +1,10 @@
+.heading{
+    color:$color-brown;
+    text-align: center;
+    &--1{
+        font-size: 4rem;
+    }
+    &--2{
+        font-size: 3rem;
+    }
+}

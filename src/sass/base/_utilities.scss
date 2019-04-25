@@ -1,0 +1,29 @@
+.u-link{
+    cursor: pointer;
+    &:hover,&[disabled]{
+        color:$gray-600;
+    }
+    &-2{
+        text-decoration: none;
+        color:$color-brown;
+        &:hover{
+            color:$color-blue;
+            text-decoration: none;
+
+        }
+    }
+}
+.u-list-no-bullet{
+    list-style-type: none;
+}
+.u-bg-grey{
+    background-color:$gray-200;
+}
+
+a {
+    color: inherit;
+    &:hover {
+        color: inherit;
+        text-decoration: currentColor;
+    }
+}

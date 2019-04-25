@@ -1,0 +1,32 @@
+.addBook{
+    width: 52rem;
+    border: 2px solid gainsboro;
+    margin-left: 327px;
+    margin-top: 114px;
+    height: 27rem;   
+    box-shadow: 5px 10px 18px gainsboro;
+
+    &-form{
+        margin-left: 83px;
+        margin-top: 39px;
+    }
+    &-labels{
+        font-size: smaller;
+    }
+
+    &-inputs{
+        width: 28rem;
+        height: 3rem;
+    }
+
+    &-btn{
+        width: 7rem;
+        height: 3rem;
+    }
+    
+}
+
+
+
+
+

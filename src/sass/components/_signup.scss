@@ -1,0 +1,33 @@
+.signup{
+    background-color: $color-beige-2;
+    padding:2rem;
+    border-radius: 5%;
+    &__submit{
+        font-size: 2rem;
+        color:$color-blue;
+        background-color: transparent;
+        border-color: $color-blue;
+        border:0.1rem solid $color-blue;
+        border-radius: 0.5rem;
+        transition-duration: 0.2s;
+        &:hover{
+            color:white;
+            background-color: $color-blue;
+            border-color: $color-blue;        
+        }
+        &:disabled{
+            color:$color-blue;
+            background-color: transparent;
+            border-color: $color-blue;
+            cursor: not-allowed;
+        }
+    }
+    &__header{
+        font-size: 2rem;  
+        color:$color-brown;
+    }
+    &__text{
+        font-size: 1.7rem;  
+        color:$color-brown;
+    }
+}

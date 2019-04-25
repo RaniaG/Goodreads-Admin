@@ -1,0 +1,9 @@
+.user {
+  &-details {
+      color: $color-brown;
+      font-family: $font-2, sans-serif;
+    .name {
+        font-size: 2.5rem;
+    }
+  }
+}

@@ -19,9 +19,9 @@ class AdminNavbar extends React.Component {
                 </Navbar.Brand>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Link to="/admin/categories" className="navigation__link">Categories</Link>
-                        <Link to="/admin/books" className="navigation__link" >Books</Link>
-                        <Link to="/admin/authors" className="navigation__link">Authors</Link>
+                        <Link to="/categories" className="navigation__link">Categories</Link>
+                        <Link to="/books" className="navigation__link" >Books</Link>
+                        <Link to="/authors" className="navigation__link">Authors</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

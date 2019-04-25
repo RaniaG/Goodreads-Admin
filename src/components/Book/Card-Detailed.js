@@ -55,11 +55,11 @@ class BookDetailedCard extends React.Component {
     }
 
     render() {
-        const { id, title, author, avgRating, cover, userType } = this.props;
+        const { id, title, author, avgRating, cover, LoggedIn } = this.props;
         return (
             <>
                 <Card className="book-card book-card-detailed ">
-                    {userType === 'admin' &&
+                    {LoggedIn &&
                         < Card.Text className="d-flex justify-content-end">
                             <Button onClick={this.handleEditShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faEdit} size="lg" /></Button>
                             <Button onClick={this.handleDeleteShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faTrash} size="lg" /></Button>
@@ -115,7 +115,7 @@ class BookDetailedCard extends React.Component {
 
 const mapStateToProps = state => {
     return ({
-        userType: state.user.type,
+        LoggedIn: state.user ? true : false,
     });
 };
 export default connect(mapStateToProps)(BookDetailedCard);

@@ -4,6 +4,9 @@ import AdminNavbar from './components/NavBar/admin';
 import CategoriesAdminListing from './components/Categories/AdminListing';
 import BookListing from './components/Book/Listing';
 import AuthorListing from './components/Author/Listing';
+import { connect } from 'react-redux';
+
+import './API';
 
 import './App.scss';
 
@@ -32,5 +35,7 @@ function App() {
     </Router>
   );
 }
+const mapStateToProps = (state) => ({ user: state.user });
 
-export default App;
+export default connect(mapStateToProps)(App);
+// export default App;

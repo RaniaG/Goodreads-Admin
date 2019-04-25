@@ -194,7 +194,7 @@ class AuthorListing extends React.Component {
 
                             </div>
                             {
-                                this.props.userType === 'admin' &&
+                                this.props.LoggedIn &&
                                 <>
                                     <div className="d-flex justify-content-end pr-5">
                                         <button className="button button--1" onClick={this.showAddAuthor}>
@@ -219,4 +219,4 @@ class AuthorListing extends React.Component {
         )
     }
 }
-export default connect(function (state) { return { userType: state.user.type } })(AuthorListing);
+export default connect(function (state) { return { LoggedIn: state.user ? true : false } })(AuthorListing);

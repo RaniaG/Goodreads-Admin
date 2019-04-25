@@ -19,7 +19,7 @@ class AuthorCard extends React.Component {
     }
 
     render() {
-        const { id, image, name, userType } = this.props;
+        const { id, image, name, LoggedIn } = this.props;
         let editClose = () => this.setState({ editShow: false });
         let deleteClose = () => this.setState({ deleteShow: false });
 
@@ -31,7 +31,7 @@ class AuthorCard extends React.Component {
                         <Card.Title><NavLink to={`/author/${id}`}>{name}</NavLink>
                             {/* float-right */}
 
-                            {userType === 'admin' &&
+                            {LoggedIn &&
                                 <>
                                     <Button variant="transparent" size="lg" onClick={() => this.setState({ editShow: true })}>
                                         <FontAwesomeIcon icon={faEdit} className="m-1"></FontAwesomeIcon>
@@ -60,5 +60,5 @@ class AuthorCard extends React.Component {
         )
     }
 }
-const mapState2Props = (state) => ({ userType: state.user.type })
+const mapState2Props = (state) => ({ LoggedIn: state.user ? true : false })
 export default connect(mapState2Props)(AuthorCard);

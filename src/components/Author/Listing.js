@@ -6,7 +6,6 @@ import { faTimesCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 // import authors from '../../data/authors';
 import Rater from 'react-rater'
 import AuthorCard from './Card';
-import { connect } from 'react-redux';
 import AddAuthor from './Add';
 
 
@@ -20,7 +19,7 @@ import AddAuthor from './Add';
  */
 const authors = [];
 
-class AuthorListing extends React.Component {
+export default class AuthorListing extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -193,19 +192,16 @@ class AuthorListing extends React.Component {
                                 }
 
                             </div>
-                            {
-                                this.props.LoggedIn &&
-                                <>
-                                    <div className="d-flex justify-content-end pr-5">
-                                        <button className="button button--1" onClick={this.showAddAuthor}>
-                                            <FontAwesomeIcon icon={faUserPlus} size="2x" />
-                                        </button>
-                                    </div>
-                                    <Modal show={this.state.addAuthorView} onHide={this.closeAddAuthor}>
-                                        <AddAuthor edit={false} />
-                                    </Modal>
-                                </>
-                            }
+
+                            <div className="d-flex justify-content-end pr-5">
+                                <button className="button button--1" onClick={this.showAddAuthor}>
+                                    <FontAwesomeIcon icon={faUserPlus} size="2x" />
+                                </button>
+                            </div>
+                            <Modal show={this.state.addAuthorView} onHide={this.closeAddAuthor}>
+                                <AddAuthor edit={false} />
+                            </Modal>
+
                             <Listing list={this.state.data} viewType='grid' viewControls={false}>
                                 <AuthorCard />
                             </Listing>
@@ -219,4 +215,3 @@ class AuthorListing extends React.Component {
         )
     }
 }
-export default connect(function (state) { return { LoggedIn: state.user ? true : false } })(AuthorListing);

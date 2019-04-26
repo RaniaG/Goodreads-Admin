@@ -5,9 +5,8 @@ import { Card, Button, Modal } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
-import { connect } from 'react-redux';
 import AddAuthor from './Add';
-class AuthorCard extends React.Component {
+export default class AuthorCard extends React.Component {
 
     constructor(props, context) {
         super(props, context);
@@ -19,7 +18,7 @@ class AuthorCard extends React.Component {
     }
 
     render() {
-        const { id, image, name, LoggedIn } = this.props;
+        const { id, image, name } = this.props;
         let editClose = () => this.setState({ editShow: false });
         let deleteClose = () => this.setState({ deleteShow: false });
 
@@ -29,18 +28,14 @@ class AuthorCard extends React.Component {
                     <Card.Img variant="top" src={image === "" ? "https://bobandsuewilliams.com/images/gray-1.jpg" : image} />
                     <Card.Body>
                         <Card.Title><NavLink to={`/author/${id}`}>{name}</NavLink>
-                            {/* float-right */}
 
-                            {LoggedIn &&
-                                <>
-                                    <Button variant="transparent" size="lg" onClick={() => this.setState({ editShow: true })}>
-                                        <FontAwesomeIcon icon={faEdit} className="m-1"></FontAwesomeIcon>
-                                    </Button>
-                                    <Button variant="transparent" size="lg" onClick={() => this.setState({ deleteShow: true })}>
-                                        <FontAwesomeIcon icon={faTrash} className="m-1"></FontAwesomeIcon>
-                                    </Button>
-                                </>
-                            }
+                            <Button variant="transparent" size="lg" onClick={() => this.setState({ editShow: true })}>
+                                <FontAwesomeIcon icon={faEdit} className="m-1"></FontAwesomeIcon>
+                            </Button>
+                            <Button variant="transparent" size="lg" onClick={() => this.setState({ deleteShow: true })}>
+                                <FontAwesomeIcon icon={faTrash} className="m-1"></FontAwesomeIcon>
+                            </Button>
+
                         </Card.Title>
                     </Card.Body>
                 </Card>
@@ -60,5 +55,3 @@ class AuthorCard extends React.Component {
         )
     }
 }
-const mapState2Props = (state) => ({ LoggedIn: state.user ? true : false })
-export default connect(mapState2Props)(AuthorCard);

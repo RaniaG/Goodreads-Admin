@@ -3,10 +3,9 @@ import { Card, Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import AddBook from './Add';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-class CardBrief extends React.Component {
+export default class CardBrief extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,16 +37,16 @@ class CardBrief extends React.Component {
     }
 
     render() {
-        const { id, title, cover, author, LoggedIn } = this.props;
+        const { id, title, cover, author } = this.props;
         return (
             <>
                 <Card className="book-card book-card-brief">
-                    {LoggedIn &&
-                        < Card.Text className="d-flex justify-content-end">
-                            <Button onClick={this.handleEditShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faEdit} size="lg" /></Button>
-                            <Button onClick={this.handleDeleteShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faTrash} size="lg" /></Button>
-                        </Card.Text>
-                    }
+
+                    < Card.Text className="d-flex justify-content-end">
+                        <Button onClick={this.handleEditShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faEdit} size="lg" /></Button>
+                        <Button onClick={this.handleDeleteShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faTrash} size="lg" /></Button>
+                    </Card.Text>
+
                     <Card.Img variant="top" src={cover} alt={title} style={{ height: '22rem' }} />
                     <Card.Body>
                         <Card.Title className="book-card-title-brief"><Link to={`/book/${id}`}>{title}</Link></Card.Title>
@@ -69,9 +68,3 @@ class CardBrief extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return ({
-        LoggedIn: state.user ? true : false,
-    });
-};
-export default connect(mapStateToProps)(CardBrief);

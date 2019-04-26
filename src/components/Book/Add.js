@@ -1,5 +1,6 @@
 import React from 'react';
 import SimpleSchema from 'simpl-schema';
+import axios from 'axios';
 //bootstrap component
 import { Form, Row, Col, Button } from 'react-bootstrap';
 //sass file
@@ -7,7 +8,6 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 // import cardDetailed from '../Author/Add';
 // import cardBrief from '../Login/Login';
 // import books from '../../data/books';
-
 const books = [];
 
 class AddBook extends React.Component {
@@ -74,7 +74,7 @@ class AddBook extends React.Component {
             };
             this.validationContext.validationErrors().forEach((a) => {
                 errorsArr[a.name] = true;
-                console.log(a.name);
+                // console.log(a.name);
             });
 
             this.setState({
@@ -95,6 +95,16 @@ class AddBook extends React.Component {
         const { bookName, category, auther, image } = this.state;
         console.log("state is:  " + bookName + "  " + category + "  " + auther + "  " + image);
         this.validationContext.validate({ bookName, category, auther, image });
+        axios.post('localhost:3000/books/', { bookName, category, auther, image })
+            .then((response) => {
+                // handle success
+                console.log("response is: " + response);
+                // this.props.history.push(`/newUser/${response.data.name}`);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            });
     }
 
     componentDidMount() {
@@ -107,6 +117,17 @@ class AddBook extends React.Component {
                 image: books[id - 1].cover,
             })
         }
+        // this.validationContext.validate({ bookName, category, auther, image });
+        // axios.patch(`localhost:3000/books/${id}`, { bookName, category, auther, image })
+        //     .then((response) => {
+        //         // handle success
+        //         console.log("response is: " + response);
+        //         // this.props.history.push(`/newUser/${response.data.name}`);
+        //     })
+        //     .catch(function (error) {
+        //         // handle error
+        //         console.log(error);
+        //     });
         // else if (edit && cardBrief) {
         //     this.setState({
         //         bookName: cardBrief[id - 1].bookName,

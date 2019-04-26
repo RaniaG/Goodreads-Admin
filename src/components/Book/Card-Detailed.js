@@ -4,11 +4,10 @@ import { Dropdown, Card, Row, Col, ButtonGroup, Button, Image, Modal } from 'rea
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import AddBook from './Add';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-class BookDetailedCard extends React.Component {
+export default class BookDetailedCard extends React.Component {
     constructor(bookProps) {
         super(bookProps);
         this.state = {
@@ -55,16 +54,16 @@ class BookDetailedCard extends React.Component {
     }
 
     render() {
-        const { id, title, author, avgRating, cover, LoggedIn } = this.props;
+        const { id, title, author, avgRating, cover } = this.props;
         return (
             <>
                 <Card className="book-card book-card-detailed ">
-                    {LoggedIn &&
-                        < Card.Text className="d-flex justify-content-end">
-                            <Button onClick={this.handleEditShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faEdit} size="lg" /></Button>
-                            <Button onClick={this.handleDeleteShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faTrash} size="lg" /></Button>
-                        </Card.Text>
-                    }
+
+                    < Card.Text className="d-flex justify-content-end">
+                        <Button onClick={this.handleEditShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faEdit} size="lg" /></Button>
+                        <Button onClick={this.handleDeleteShow} className="font-awesome-btn" ><FontAwesomeIcon icon={faTrash} size="lg" /></Button>
+                    </Card.Text>
+
                     <Row className="no-gutters">
                         <Col md={2} className="p-3">
                             <Image src={cover} alt={title} rounded fluid />
@@ -113,9 +112,3 @@ class BookDetailedCard extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return ({
-        LoggedIn: state.user ? true : false,
-    });
-};
-export default connect(mapStateToProps)(BookDetailedCard);

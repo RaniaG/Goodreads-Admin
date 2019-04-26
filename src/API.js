@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const axiosLoggedIn = axios.create();
-axiosLoggedIn.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('AwesomeReads')}`;
+axiosLoggedIn.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('AwesomeReads-admin')}`;
 
 
 export const login = (userCredentials) => {

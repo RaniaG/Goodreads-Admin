@@ -9,7 +9,6 @@ import BookDetailedCard from './Card-Detailed';
 import Rater from 'react-rater'
 import AddBook from './Add';
 import 'react-rater/lib/react-rater.scss'
-import { connect } from 'react-redux';
 
 
 const books = [];
@@ -21,7 +20,7 @@ const books = [];
  *      
  */
 
-class BookListing extends React.Component {
+export default class BookListing extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -242,21 +241,18 @@ class BookListing extends React.Component {
                                 }
 
                             </div>
-                            {
-                                this.props.LoggedIn &&
-                                <>
-                                    <div className="d-flex justify-content-end pr-5">
-                                        <button className="button button--1" onClick={this.showAddBook}>
-                                            <FontAwesomeIcon icon={faBookMedical} size="2x" />
-                                        </button>
-                                    </div>
-                                    <Modal show={this.state.addBookView} onHide={this.closeAddBook}>
 
-                                        <AddBook />
+                            <div className="d-flex justify-content-end pr-5">
+                                <button className="button button--1" onClick={this.showAddBook}>
+                                    <FontAwesomeIcon icon={faBookMedical} size="2x" />
+                                </button>
+                            </div>
+                            <Modal show={this.state.addBookView} onHide={this.closeAddBook}>
 
-                                    </Modal>
-                                </>
-                            }
+                                <AddBook />
+
+                            </Modal>
+
                             <Listing list={this.state.data} viewType='list' viewControls={true}>
                                 <BookDetailedCard />
                                 <CardBrief />
@@ -271,4 +267,3 @@ class BookListing extends React.Component {
         )
     }
 }
-export default connect(function (state) { return { LoggedIn: state.user ? true : false } })(BookListing);

@@ -11,3 +11,31 @@ axiosLoggedIn.defaults.headers.common['Authorization'] = `Bearer ${localStorage.
 export const login = (userCredentials) => {
     return axios.post('/users/login', userCredentials);
 }
+
+export const getCategories = () => {
+    return axios.get('/categories', {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('AwesomeReads-admin')}`
+        }
+    })
+        .then(res => res.data)
+}
+
+export const addCategory = ({ name }) => {
+    return axios.post('/categories',
+        { name },
+        {
+            headers: { Authorization: `Bearer ${localStorage.getItem('AwesomeReads-admin')}` }
+        })
+        .then(res => res.data)
+}
+
+export const editCategory = ({ name, id }) => {
+
+    return axios.patch(`/categories/${id}`,
+        { name },
+        {
+            headers: { Authorization: `Bearer ${localStorage.getItem('AwesomeReads-admin')}` }
+        })
+        .then(res => res.data);
+}

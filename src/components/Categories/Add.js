@@ -2,7 +2,8 @@ import React from 'react';
 import SimpleSchema from 'simpl-schema';
 import { Form, Button } from 'react-bootstrap';
 // import categories from '../../data/categories';
-const categories = [];
+//const categories = [];
+import { addCategory, editCategory } from '../../API';
 
 
 export default class AddCategory extends React.Component {
@@ -56,9 +57,17 @@ export default class AddCategory extends React.Component {
         //debugger;
         e.preventDefault();
         this.validationContext.validate({ ...this.state.input });
-        //console.log(this.validationContext.validationErrors().length);
+
         if (this.validationContext.validationErrors().length === 0) {
-            //console.log('okay');
+
+            if (this.state.input[categoryName] == '') {
+                addCategory({ name })
+                    .then(res => this.setState({ input: { categoryName: res } }));
+            } else {
+                const id = this.props.match.params.id;
+                editCategory({ name, id })
+                //.then(res => this.setState())
+            }
             this.setState({
                 input: { ...this.state.input, ...{ categoryName: '' } },
             })

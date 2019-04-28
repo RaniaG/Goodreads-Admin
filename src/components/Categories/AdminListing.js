@@ -1,13 +1,14 @@
 import React from 'react';
 import CategoryCard from './Card';
 // import categories from '../../data/categories';
+import { getCategories } from '../../API';
 import Listing from '../Listing/Listing';
 import { Row, Col, Button, Modal } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import AddCategory from './Add';
 
-const categories = [];
+//const categories = [];
 
 export default class CategoriesAdminListing extends React.Component {
     constructor(props, context) {
@@ -26,6 +27,16 @@ export default class CategoriesAdminListing extends React.Component {
 
     handleShow() {
         this.setState({ show: true });
+    }
+
+    componentDidMount() {
+        getCategories()
+            .then(categories => {
+                this.setState({
+                    categories: categories,
+                })
+            })
+            .catch(err => err.message)
     }
 
     render() {
